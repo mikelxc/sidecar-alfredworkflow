@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.alfredapp.enable.sidecar</string>
+	<string>com.mikelxc.enable.sidecar</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -112,16 +112,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>tell application "System Events"
-	tell process "SystemUIServer"
-		try
-			click (menu bar item 1 of menu bar 1 whose description contains "Displays")
-			click (menu item 1 of menu 1 of result whose Title contains "iPad")
-		on error
-			display dialog "Cannot find any iPads available right now"
-		end try
-	end tell
-end tell</string>
+				<string>tell application "System Events"	tell process "ControlCenter"		try			perform action "AXPress" of menu bar item "Control Center" of menu bar 1		on error			display dialog "Please make sure you are using macOS Big Sur and have Control Center showing on your menu bar"		end try		try			tell checkbox 6 of group 1 of group 1 of window 1				perform action "AXPress"			end tell			delay 1		on error			display dialog "Cannot find Displays in your control center"		end try		try			tell checkbox 4 of group 1 of group 1 of window 1				perform action "AXPress"			end tell		on error			display dialog "Cannot find your ipad"		end try	end tellend tell</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -284,7 +275,7 @@ end tell</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/mikelxc</string>
 </dict>
